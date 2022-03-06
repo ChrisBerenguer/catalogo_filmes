@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<form action={% url target_url %} method="post">
+<form action="." method="post">
    {% csrf_token %}
    {{ form }}
    <input type="submit" value="Enviar">

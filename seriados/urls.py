@@ -24,15 +24,16 @@ urlpatterns = [
    path('episodio/nota/<str:nota>/', views.episodio_nota_list,
        name='episodio_nota_list'),
 
+   # ---
 
    path('sobre/', TemplateView.as_view(template_name="about.html"), name='about'),
    path('contato/', views.Contact.as_view(), name='contact'),
 
-   
+   # ---
 
    path('', views.HomeView.as_view(), name='home'),
 
-   
+   # ---
 
 ]
 

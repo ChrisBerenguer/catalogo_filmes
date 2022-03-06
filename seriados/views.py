@@ -37,6 +37,8 @@ def prepare_data_detail(_object, fields_name):
    return rows
 
 
+# ---
+
 
 def serie_list(request):
    objects = Serie.objects.all()
@@ -77,6 +79,7 @@ def serie_insert(request):
    })
 
 
+# ---
 
 class TemporadaListView(ListView):
    template_name = 'temporada_list.html'
@@ -106,7 +109,27 @@ class TemporadaDeleteView(DeleteView):
    def get_success_url(self):
        return reverse('seriados:temporada_list')
 
-  
+
+
+
+
+# ---
+
+"""
+def episodio_list(request):
+   objects = Episodio.objects.all()
+   labels, rows = prepare_data_list(objects, ['titulo', 'data'])
+   context = {
+       'title': "Episódios",
+       'labels': labels,
+       'rows':rows,
+       'detail_url': 'seriados:episodio_details',
+       }
+   return render(request, 'list.html', context)
+"""
+
+   # See https://docs.djangoproject.com/en/4.0/topics/db/queries/#field-lookups
+   #~ objects = Episodio.objects.filter(titulo__startswith=search)
 def episodio_list(request):
    search = request.GET.get('search', "")
    objects = Episodio.objects.filter(titulo__contains=search)
@@ -133,6 +156,7 @@ class EpisodioCreateView(CreateView):
    model = Episodio
    fields = ['temporada', 'data', 'titulo']
 
+# ---
 
 def episodio_nota_list(request, nota):
    objects = Episodio.objects.filter(reviewepisodio__nota=nota)
