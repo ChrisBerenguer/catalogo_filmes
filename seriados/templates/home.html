@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p><a href={% url 'seriados:home' %}>Home</a></p>
+
+<p><a href={% url 'seriados:series_list' %}>Series</a></p>
+<p><a href={% url 'seriados:episodio_list' %}>Episódios</a></p>
+
+<p>
+   <a href={% url 'seriados:episodio_nota_list' nota='A'%}>Episódios Nota A</a> -
+   <a href={% url 'seriados:episodio_nota_list' nota='B'%}>Episódios Nota B</a> -
+   <a href={% url 'seriados:episodio_nota_list' nota='C'%}>Episódios Nota C</a>
+</p>
+
+<p><a href={% url 'seriados:temporadas' %}>Temporadas</a></p>
+
+<p><a href={% url 'seriados:about' %}>Sobre</a></p>
+<p><a href={% url 'seriados:contact' %}>Contato</a></p>
+
+<p><a href={% url 'admin:index' %}>ADMIN</a></p>
+
+<h3>Procurar episódio</h3>
+
+<input id='input_search' type="text" placeholder="Search..">
+<button id="btn_search">Procurar Episódio</button>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+   crossorigin="anonymous">
+</script>
+
+<script type="text/javascript">
+   $(document).ready(function() {
+       $("#btn_search").click(function() {
+           search = $("#input_search").val();
+           url = '{% url 'seriados:episodio_list' %}' + '?' +  $.param({search:search});
+           window.location.href = url;
+       });
+   });
+</script>
+
+
+
+{% endblock %}
+
+
