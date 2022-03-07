@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
+from django.contrib.auth import models as auth_models
+import datetime
 import os
 import sys
 
@@ -30,11 +32,10 @@ s.save()
 t = models.Temporada(numero=1, series=s)
 t.save()
 
-import datetime
-e = models.Episodio(data=datetime.date(1975,9,19), titulo ="A Tourch of Class", temporada =t)
+e = models.Episodio(data=datetime.date(1975, 9, 19),
+                    titulo="A Tourch of Class", temporada=t)
 e.save()
 
-from django.contrib.auth import models as auth_models
 u = auth_models.User.objects.get(pk=1)
 
 r = models.Revisor(user=u)
@@ -43,7 +44,5 @@ r.save
 re = models.ReviewEpisodio(episodio=e, revisor=r, nota='A')
 re.save()
 
-re.get_nota_display()   # Deve imprimir "Excelente"
-re.nota                 # Deve imprimir 'A
-
- 
+re.get_nota_display()   # Para imprimir "Excelente"
+re.nota                 # Para imprimir 'A'
