@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Chave Pessoal - colocar a minha
-SECRET_KEY = 'django-insecure-fz49ra1fdu*h*8w7)c9*f3bsol$*n=y2n!!7#rropjijn%m9n4'
+SECRET_KEY = 'django-insecure-s1@jbsifwws9grt-y@ufbj!9q1)%6@el%_23q)&0o@z0gkbe7%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'seriados',  # ADICIONE ESSA LINHA
+    'seriados',  # ADICIOAR ESSA LINHA
+
 ]
 
 MIDDLEWARE = [
