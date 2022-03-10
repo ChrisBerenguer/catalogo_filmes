@@ -1,18 +1,17 @@
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
-from django.forms.models import model_to_dict
-from django.urls import reverse
-from django.db.models import Q
-
 from django.contrib.auth.decorators import login_required, permission_required
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-
+from django.contrib.auth.mixins import (LoginRequiredMixin,
+                                        PermissionRequiredMixin)
+from django.db.models import Q
+from django.forms.models import model_to_dict
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
 from django.views import View
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import DetailView, ListView, TemplateView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
-from .models import Serie, Temporada, Episodio
 from .forms import SerieForm, TemporadaForm
+from .models import Episodio, Serie, Temporada
 
 
 def prepare_data_list(objects, fields_name):
@@ -176,7 +175,7 @@ class EpisodioBuscaListView(ListView):
                 q = q | Q(temporada__numero=i_term)
 
         qs = super().get_queryset().filter(q)
-        # print(qs.query)
+        print(qs.query)
         return qs
 
 

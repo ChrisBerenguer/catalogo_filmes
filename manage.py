@@ -1,16 +1,15 @@
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
-from django.contrib.auth import models as auth_models
-import datetime
+
 import os
 import sys
 
-from seriados import models
+# from seriados import models
 
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'server.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
