@@ -3,9 +3,24 @@
 {% block content %}
 <h1> Lista de séries </h1>
 
+
+
+
 {% for series in lista_series %}
     <p>{{ series.nome }} </p>
 
+
+
+
+
+
+
+
+
 {% endfor %}
+
+<div class="col-6 col-md-4">
+    <img src="{% static 'seriados/baby_yoda.png' %}" alt="imagem" width="1050" height="602">
+</div>
 {% endblock %}
 
