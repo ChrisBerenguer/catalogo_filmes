@@ -41,6 +41,8 @@ INSTALLED_APPS = [
 
     'seriados',  # ADICIOAR ESSA LINHA
 
+
+
 ]
 
 MIDDLEWARE = [

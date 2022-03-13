@@ -23,25 +23,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-s = models.Serie(nome="Falty Towers")
-s.save()
-
-t = models.Temporada(numero=1, series=s)
-t.save()
-
-e = models.Episodio(data=datetime.date(1975, 9, 19),
-                    titulo="A Tourch of Class", temporada=t)
-e.save()
-
-u = auth_models.User.objects.get(pk=1)
-
-r = models.Revisor(user=u)
-r.save
-
-re = models.ReviewEpisodio(episodio=e, revisor=r, nota='A')
-re.save()
-
-re.get_nota_display()   # Para imprimir "Excelente"
-re.nota                 # Para imprimir 'A'
