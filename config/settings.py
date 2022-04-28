@@ -20,7 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
+# Chave Pessoal - colocar a minha
+SECRET_KEY = 'django-insecure-s1@jbsifwws9grt-y@ufbj!9q1)%6@el%_23q)&0o@z0gkbe7%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'seriados',  # ADICIOAR ESSA LINHA
+    'seriados',  # ADICIONAR ESSA LINHA
+    'blog.apps.BlogConfig',  # Criação do blog
 
 
 
@@ -133,3 +135,18 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_REDIRECT_URL = 'seriados:episodio_busca_list'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+# Setups para email
+
+EMAIL_BACKEND = 'django,core.mail.backends.console.EmailBackend'
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'chris.lovecrypto@gmail.com'
+EMAIL_HOST_PASSWORD = '*******'
+EMAIL_PORT = 578
+EMAIL_USE_TLS = True

@@ -13,6 +13,8 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .forms import SerieForm, TemporadaForm
 from .models import Episodio, Serie, Temporada
 
+from blog import views
+
 
 def prepare_data_list(objects, fields_name):
     labels = list()
@@ -186,3 +188,10 @@ class Contact(TemplateView):
 class HomeView(View):
     def get(self, request):
         return render(request, 'home.html', {})
+
+
+# View do blog
+
+class BlogView(Blog):
+    def get(self, request):
+        return render(request, 'blog/post/base.html', {})
