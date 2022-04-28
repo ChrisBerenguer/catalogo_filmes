@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %} </title>
+    <link hrenf="{% static "css/blog.css" %}" rel="stylesheet">
+</head>
+
+<body>
+    <div id="content">
+        {% block content%}
+        {% endblock %}
+    </div>
+    <div id="sidebar">
+        <h2> Conhecendo o framework Django </h2>
+        <p> Django é um framework para desenvolvimento rápido para web, escrito em Python, que utiliza o padrão model-template-view. Foi criado originalmente como sistema para gerenciar um site jornalístico na cidade de Lawrence, no Kansas. Tornou-se um projeto de código aberto e foi publicado sob a licença BSD em 2005.
+
+        O Django utiliza o princípio DRY (Don't Repeat Yourself), onde faz com que o desenvolvedor aproveite ao máximo o código já feito, evitando a repetição.
+        </p>
+    </div>
+    
+</body>
+</html>

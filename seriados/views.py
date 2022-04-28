@@ -1,3 +1,4 @@
+from blog import views
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import (LoginRequiredMixin,
                                         PermissionRequiredMixin)
@@ -12,8 +13,6 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from .forms import SerieForm, TemporadaForm
 from .models import Episodio, Serie, Temporada
-
-from blog import views
 
 
 def prepare_data_list(objects, fields_name):
@@ -192,6 +191,6 @@ class HomeView(View):
 
 # View do blog
 
-class BlogView(Blog):
+'''class BlogView(Blog):
     def get(self, request):
-        return render(request, 'blog/post/base.html', {})
+        return render(request, 'blog/post/base.html', {})'''
